@@ -1,0 +1,137 @@
+/* Expense Component Styles */
+
+.table-wrap {
+  background: #f6fbff;
+  padding: 0;
+  border-radius: 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.expense-table thead th {
+  background: #2b5d9e;
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.expense-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.expense-table tfoot .totals-row {
+  background: #e9f0fb;
+  font-weight: 700;
+}
+
+.expense-table .align-right {
+  text-align: right;
+  padding-right: 16px;
+}
+
+.totals-label {
+  text-align: right;
+  padding-right: 12px;
+}
+
+.actions-cell {
+  width: 160px;
+  padding: 8px 12px;
+}
+
+.actions-inner {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.btn-ghost.small,
+.btn-danger.small {
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+/* Ensure footer cells match body cell padding/alignment so totals column lines up */
+.expense-table tfoot td {
+  padding: 10px 12px;
+}
+
+.expense-table tfoot .align-right {
+  padding-right: 16px;
+}
+
+.expense-table tfoot .totals-label {
+  text-align: right;
+  padding-right: 12px;
+}
+
+/* Dark Mode Styles */
+html.dark .table-wrap {
+  background: #0b3146 !important;
+}
+
+html.dark .expense-table {
+  background: transparent;
+}
+
+html.dark .expense-table thead th {
+  background: #133e63;
+  color: #e6eef8;
+}
+
+html.dark .expense-table tbody td {
+  color: #cfe7ff;
+  border-color: rgba(255, 255, 255, 0.03);
+  background: transparent;
+}
+
+html.dark .expense-table tfoot .totals-row {
+  background: #071226 !important;
+  color: #e6eef8;
+}
+
+/* Light mode dropdown styling */
+/* Pagination dropdown: custom arrow to control visibility in both themes */
+.expense-main .pagination-controls select.pagination-select,
+.expense-main .pagination-controls select,
+.settings-main .pagination-controls select.pagination-select,
+.settings-main .pagination-controls select {
+  appearance: auto !important; /* use native arrow for consistent sizing */
+  -webkit-appearance: auto !important;
+  color-scheme: light !important; /* force dark arrow on light bg */
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ccc !important;
+  width: 64px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  text-align: center !important; /* center the number in the select */
+  background-image: none !important; /* suppress Tailwind/forms arrow to avoid double icons */
+}
+
+/* Pagination controls padding */
+.pagination-controls {
+  padding: 0 18px !important;
+}
+/* Dark mode: keep light dropdown + white arrow to guarantee contrast */
+html.dark .expense-main .pagination-controls select.pagination-select,
+html.dark .expense-main .pagination-controls select,
+html.dark .settings-main .pagination-controls select.pagination-select,
+html.dark .settings-main .pagination-controls select {
+  appearance: auto !important; /* use native arrow for consistent sizing */
+  -webkit-appearance: auto !important;
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ccc !important;
+  text-align: center !important; /* center the number in the select */
+  background-image: none !important; /* suppress Tailwind/forms arrow to avoid double icons */
+}

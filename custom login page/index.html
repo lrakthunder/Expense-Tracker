@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #c0d4e8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e8e8e8;
+            padding: 60px 50px;
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 500px;
+        }
+
+        .logo-section {
+            margin-bottom: 15px;
+        }
+
+        .logo-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .welcome-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .support-text {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 30px;
+        }
+
+        .support-text a {
+            color: #2c5f8d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+
+        .login-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #ffffff;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #95a5a6;
+            font-size: 18px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-password:hover {
+            color: #667eea;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            color: #5a6c7d;
+            cursor: pointer;
+        }
+
+        .checkbox-group a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-signin {
+            width: 100%;
+            padding: 14px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-signin:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-signin:active {
+            transform: translateY(0);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .blank-page {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .blank-page h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .blank-page p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .btn-logout {
+            padding: 12px 30px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .login-container {
+                max-width: 100%;
+                padding: 40px 30px;
+            }
+
+            .welcome-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            setup() {
+                const isLoggedIn = ref(false)
+                const username = ref('')
+                const password = ref('')
+                const agreedToPolicy = ref(false)
+                const showPassword = ref(false)
+
+                const handleLogin = () => {
+                    if (!username.value || !password.value) {
+                        alert('Please fill in all fields')
+                        return
+                    }
+                    if (!agreedToPolicy.value) {
+                        alert('Please agree to the Privacy Policy')
+                        return
+                    }
+                    isLoggedIn.value = true
+                }
+
+                const handleLogout = () => {
+                    isLoggedIn.value = false
+                    username.value = ''
+                    password.value = ''
+                    agreedToPolicy.value = false
+                }
+
+                const togglePassword = () => {
+                    showPassword.value = !showPassword.value
+                }
+
+                return {
+                    isLoggedIn,
+                    username,
+                    password,
+                    agreedToPolicy,
+                    showPassword,
+                    handleLogin,
+                    handleLogout,
+                    togglePassword
+                }
+            },
+            template: `
+                <div v-if="!isLoggedIn">
+                    <div class="main-container">
+                        <div class="left-section">
+                            <div class="logo-section">
+                                <img src="logo.png" alt="Company Logo" class="logo-image" />
+                            </div>
+                            <h1 class="welcome-title">Welcome !</h1>
+                            <p class="welcome-text">Manage your retirement account, check balances, and<br>monitor investments easily!</p>
+                            <p class="support-text">Need help? email <a href="mailto:support@example.ph">support@example.ph</a></p>
+                        </div>
+                        <div class="login-container">
+                            <h2 class="login-title">Login Account</h2>
+                            <form @submit.prevent="handleLogin">
+                                <div class="form-group">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        v-model="username" 
+                                        placeholder="Username"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <div class="password-wrapper">
+                                        <input 
+                                            :type="showPassword ? 'text' : 'password'" 
+                                            class="form-control" 
+                                            v-model="password" 
+                                            placeholder="Password"
+                                        />
+                                        <button 
+                                            type="button" 
+                                            class="toggle-password" 
+                                            @click="togglePassword"
+                                        >
+                                            <span v-if="showPassword">👁️</span>
+                                            <span v-else>👁️‍🗨️</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input 
+                                        type="checkbox" 
+                                        id="privacy" 
+                                        v-model="agreedToPolicy"
+                                    />
+                                    <label for="privacy">
+                                        I have read and agree to the <a href="#">Privacy Policy</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn-signin">Sign In</button>
+                            </form>
+                            <div class="forgot-password">
+                                <a href="#">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="blank-page">
+                    <h1>Welcome!</h1>
+                    <p>You have successfully logged in.</p>
+                    <button @click="handleLogout" class="btn-logout">Logout</button>
+                </div>
+            `
+        }).mount('#app')
+    </script>
+</body>
+</html>
