@@ -11,7 +11,7 @@
 # Thunder Expense Tracker
 
 ## Project Overview
-Thunder Expense Tracker is a Laravel 11 + Vue 3 (Vite) single-page application for managing retirement account expenses. It features a custom login/register UI and is designed for easy local development and future extensibility.
+Thunder Expense Tracker is a Laravel 11 + Vue 3 (Vite) single-page application for managing expenses. It features a custom login/register UI and is designed for easy local development and future extensibility.
 
 ## Prerequisites
 - PHP 8.2+
